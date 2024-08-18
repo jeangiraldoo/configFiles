@@ -12,7 +12,7 @@ def main():
         windowsInstallation(user)
 
 def windowsInstallation(user):
-    createWindowsProgrammingDirectory(user)
+    createWindowsDirectories(user)
     files = {"init.lua":f"C:/Users/{user}/Desktop"}
     for fileName in(files):
         moveConfigurationFile(fileName, files[fileName]) 
@@ -30,11 +30,11 @@ def moveConfigurationFile(fileName, path):
     print(path)
     os.system(f"move {fileName} {path}")
 
-def createWindowsProgrammingDirectory(user):
+def createWindowsDirectories(user):
     print("Creating directories...")
-        
-    path = f"C:/Users/{user}/Documents/programming/configFiles"
-    createDirectory(path)
+    directories = [f"C:/Users/{user}/Documents/programming/configFiles"]    
+    for path in directories:
+        createDirectory(path)
 
 main()
 
